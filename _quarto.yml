@@ -3,18 +3,22 @@ project:
   output-dir: docs
 
 website:
-  title: "Inferenza"
+  title: ""
+  description: "Statistics for Scientific Research"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: methods.qmd
+        text: Methods
+      - href: trends.qmd
+        text: Trends
+      - href: about.qmd
+        text: About
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: journal
     css: styles.css
     toc: true
 
