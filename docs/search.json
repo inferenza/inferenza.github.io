@@ -7,10 +7,38 @@
     "text": "About this site"
   },
   {
+    "objectID": "methods/pvalue-difference-vs-importance.html",
+    "href": "methods/pvalue-difference-vs-importance.html",
+    "title": "Understanding the p-value: Difference vs. Importance",
+    "section": "",
+    "text": "Imagine we have two drugs, A and B, given to two different patients. Drug A helps one patient, but drug B does not help the other. However, this does not prove that drug B doesn’t work. The second patient might have had an allergic reaction, or maybe drug A didn’t work, and the improvement was just a placebo effect. This is why scientists test drugs on many people, using a representative sample to get accurate results."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Inferenza",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "methods\n\nstatistics\n\np-value\n\n\n\n\n\n\n\nApr 30, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#methods",
+    "href": "index.html#methods",
+    "title": "Inferenza",
+    "section": "",
+    "text": "methods\n\nstatistics\n\np-value\n\n\n\n\n\n\n\nApr 30, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#trends",
+    "href": "index.html#trends",
+    "title": "Inferenza",
+    "section": "Trends",
+    "text": "Trends\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "Methods",
+    "section": "",
+    "text": "Understanding the p-value: Difference vs. Importance\n\n\n\nmethods\n\nstatistics\n\np-value\n\n\n\n\n\n\n\nApr 30, 2026\n\n\n\n\n\n\nNo matching items"
   }
 ]

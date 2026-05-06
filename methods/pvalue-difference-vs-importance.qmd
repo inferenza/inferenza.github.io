@@ -1,0 +1,54 @@
+---
+title: "Understanding the p-value: Difference vs. Importance"
+author: "Inferenza"
+date: "2026-04-30"
+categories: [methods, statistics, p-value]
+---
+
+Imagine we have two drugs, A and B, given to two different patients. Drug A helps one patient, but drug B does not help the other. However, this does not prove that drug B doesn't work. The second patient might have had an allergic reaction, or maybe drug A didn't work, and the improvement was just a placebo effect. This is why scientists test drugs on many people, using a representative sample to get accurate results.
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(10, 7))
+
+categories = ['Cured', 'Not Cured']
+drug_a = [167, 56]
+drug_b = [153, 63]
+
+x = np.arange(len(categories))
+width = 0.35
+
+bars_a = ax.bar(x - width/2, drug_a, width, label='Drug A (74.9%)', color='lightblue')
+bars_b = ax.bar(x + width/2, drug_b, width, label='Drug B (70.8%)', color='lightsalmon')
+
+for bar in bars_a:
+    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
+            str(int(bar.get_height())), ha='center', va='bottom', fontsize=11)
+for bar in bars_b:
+    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
+            str(int(bar.get_height())), ha='center', va='bottom', fontsize=11)
+
+ax.set_xlabel('Treatment Outcome', fontsize=12)
+ax.set_ylabel('Number of People', fontsize=12)
+ax.set_title('Comparison of Drug A and Drug B Effectiveness', fontsize=14, pad=20)
+ax.set_xticks(x)
+ax.set_xticklabels(categories)
+ax.legend(loc='upper right', bbox_to_anchor=(1, 1))
+plt.tight_layout(rect=[0, 0.1, 1, 1])
+ax.yaxis.grid(True, linestyle='--', alpha=0.7)
+ax.set_axisbelow(True)
+
+fig.text(0.5, -0.05, 'p-value: 0.396', ha='center', fontsize=12, fontweight='bold')
+fig.text(0.5, -0.1, 
+         'Hypothesis testing: the observed difference in cure rates (75% for Drug A and 71% for Drug B)\ncould be due to random chance, rather than a real effect of the drugs.',
+         ha='center', fontsize=10, color='gray')
+
+plt.tight_layout()
+plt.show()
+```
+

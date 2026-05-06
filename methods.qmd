@@ -1,0 +1,10 @@
+---
+title: "Methods"
+listing:
+  contents: methods
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  image-placeholder: none
+  fields: [title, description, date, categories]
+---

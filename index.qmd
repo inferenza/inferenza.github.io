@@ -1,4 +1,30 @@
 ---
 title: "Inferenza"
 subtitle: "Statistics for Scientific Research"
+toc: false
+listing:
+  - id: methods-list
+    contents: methods
+    sort: "date desc"
+    type: grid
+    grid-columns: 2
+    image-placeholder: none
+    fields: [title, description, date, categories]
+  - id: trends-list
+    contents: trends
+    sort: "date desc"
+    type: grid
+    grid-columns: 2
+    image-placeholder: none
+    fields: [title, description, date, categories]
 ---
+
+## Methods
+
+::: {#methods-list}
+:::
+
+## Trends
+
+::: {#trends-list}
+:::
