@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-05-06">
 
-<title>Inferenza</title>
+<title>The Issue of P-Value Hacking and Its Impact on Research Integrity</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +27,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2a4f2bfc591cd5498fe57ca28617a45d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2a4f2bfc591cd5498fe57ca28617a45d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,98 +71,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-methods-list .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-methods-list'] = new List('listing-methods-list', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-trends-list .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-trends-list'] = new List('listing-trends-list', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -176,19 +89,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./methods.html"> 
+    <a class="nav-link" href="../methods.html"> 
 <span class="menu-text">Methods</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./trends.html"> 
+    <a class="nav-link" href="../trends.html"> 
 <span class="menu-text">Trends</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -202,21 +115,33 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Inferenza</h1>
-<p class="subtitle lead">Statistics for Scientific Research</p>
-</div>
+<h1 class="title">The Issue of P-Value Hacking and Its Impact on Research Integrity</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">methods</div>
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">p-hacking</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 6, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -226,80 +151,22 @@ window.Quarto = {
 </header>
 
 
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<div id="listing-methods-list" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="bWV0aG9kcyUyQ3N0YXRpc3RpY3MlMkNwLWhhY2tpbmc=" data-listing-date-sort="1778018400000" data-listing-file-modified-sort="1778076865687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="911">
-<a href="./methods/pvalue-hacking.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-The Issue of P-Value Hacking and Its Impact on Research Integrity
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWV0aG9kcw=='); return false;">methods</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cC1oYWNraW5n'); return false;">p-hacking</div>
-
-</div>
-<div class="card-text listing-description delink">
-The strict use of a fixed 5% p-value threshold has led to a major problem in scientific research: p-value hacking. This phenomenon refers to the excessive exploration of…
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 6, 2026
+<p>The strict use of a fixed 5% p-value threshold has led to a major problem in scientific research: p-value hacking. This phenomenon refers to the excessive exploration of data or performing multiple analyses to find a “statistically significant” result (e.g., a p-value below 0.05). This practice is problematic because it increases the likelihood of false positive results that appear significant but do not reflect a true effect.</p>
+<p>Let us consider, as an example, measuring the recovery time for a group of individuals who have not taken any drug to combat a virus. Suppose that 95% of individuals recover within a time window ranging from 5 to 15 days. We randomly select two groups (from the same distribution), each with three observations, and compare their recovery times. We know that if we repeat this comparison 100 times, there’s a 5% chance of obtaining a false positive; that is, finding a statistically significant difference purely by chance. If we repeat the same procedure 10,000 times, we could expect around 500 false positives. In other words, the more tests of this kind we perform, the higher the likelihood of observing at least one false positive result.</p>
+<p>This phenomenon, where conducting many statistical tests increases the chance of false positives, is known as the Multiple Testing Problem.</p>
+<div id="d8ff21d5" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pvalue-hacking_files/figure-html/cell-2-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1526" height="661"></p>
+</figure>
 </div>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="bWV0aG9kcyUyQ3N0YXRpc3RpY3MlMkNwLXZhbHVl" data-listing-date-sort="1777500000000" data-listing-file-modified-sort="1778075607462" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3698">
-<a href="./methods/pvalue-difference-vs-importance.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding the p-value: Difference vs.&nbsp;Importance
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWV0aG9kcw=='); return false;">methods</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cC12YWx1ZQ=='); return false;">p-value</div>
-
-</div>
-<div class="card-text listing-description delink">
-Imagine we have two drugs, A and B, given to two different patients. Drug A helps one patient, but drug B does not help the other. However, this does not prove that drug B…
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="trends" class="level2">
-<h2 class="anchored" data-anchor-id="trends">Trends</h2>
-<div id="listing-trends-list" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-2">
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<p>There are many ways to compensate for the Multiple Testing Problem and reduce the number of false positives, for example, the False Discovery Rate. The general idea behind the False Discovery Rate (FDR) approach is to compute the p-value for each comparison and then calculate an adjusted p-value, which is usually larger than the original one. As a result, some of the tests that were initially statistically significant may now have an adjusted p-value greater than 5%.</p>
+<p>Let us imagine that Test #10 in the graph above, highlighted in red, has a p-value of 6%. Typically, when performing a statistical test, we do not know in advance whether the data from the two groups come from the same distribution or two different distributions. Honestly, we always hope, in our experiments, that the observations come from two different distributions. Remember that, in this experiment, we are searching for a drug to help people recover fast, and if the p-value is 6%, we are very tempted to know if the p-value will get smaller if we add more data. However, the theory assumes that we only calculate a single p-value to make a decision, and to avoid making a mistake and getting a false positive, we need to determine the proper sample size before experimenting. That means we need to do a Power Analysis that tells us how many replicates we need to have a relatively high probability of correctly rejecting the null hypothesis.</p>
 
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

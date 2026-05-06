@@ -2,12 +2,14 @@
   {
     "listing": "/index.html",
     "items": [
+      "/methods/pvalue-hacking.html",
       "/methods/pvalue-difference-vs-importance.html"
     ]
   },
   {
     "listing": "/methods.html",
     "items": [
+      "/methods/pvalue-hacking.html",
       "/methods/pvalue-difference-vs-importance.html"
     ]
   }

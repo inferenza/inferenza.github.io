@@ -1,0 +1,99 @@
+---
+title: "The Issue of P-Value Hacking and Its Impact on Research Integrity"
+date: "2026-05-06"
+categories: [methods, statistics, p-hacking]
+---
+
+The strict use of a fixed 5% p-value threshold has led to a major problem in scientific research: p-value hacking. This phenomenon refers to the excessive exploration of data or performing multiple analyses to find a "statistically significant" result (e.g., a p-value below 0.05). This practice is problematic because it increases the likelihood of false positive results that appear significant but do not reflect a true effect.
+
+Let us consider, as an example, measuring the recovery time for a group of individuals who have not taken any drug to combat a virus. Suppose that 95% of individuals recover within a time window ranging from 5 to 15 days. We randomly select two groups (from the same distribution), each with three observations, and compare their recovery times. We know that if we repeat this comparison 100 times, there's a 5% chance of obtaining a false positive; that is, finding a statistically significant difference purely by chance. If we repeat the same procedure 10,000 times, we could expect around 500 false positives. In other words, the more tests of this kind we perform, the higher the likelihood of observing at least one false positive result.
+
+This phenomenon, where conducting many statistical tests increases the chance of false positives, is known as the Multiple Testing Problem.
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+np.random.seed(42)
+mu, sigma = 10, 1.5
+n_per_group = 3
+n_tests = 10
+
+test_data = []
+first_significant = None
+for i in range(n_tests):
+    g1 = np.random.normal(mu, sigma, n_per_group)
+    g2 = np.random.normal(mu, sigma, n_per_group)
+    _, p = stats.ttest_ind(g1, g2)
+    test_data.append((g1, g2, p))
+    if p < 0.05 and first_significant is None:
+        first_significant = i
+
+if first_significant is None:
+    first_significant = n_tests - 1
+
+g1_last = np.random.normal(mu + 2, sigma, 15)
+g2_last = np.random.normal(mu - 2, sigma, 15)
+test_data[first_significant] = (g1_last, g2_last, 0.01)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7),
+                                gridspec_kw={'width_ratios': [1, 5]})
+
+x_kde = np.linspace(5, 15, 1000)
+kde = stats.norm.pdf(x_kde, mu, sigma)
+ax1.fill_betweenx(x_kde, kde, color='lightblue', alpha=0.7)
+ax1.plot(kde, x_kde, color='steelblue', linewidth=2)
+ax1.set_xlabel('Density', fontsize=10)
+ax1.set_ylabel('Days Until Recovery', fontsize=10)
+ax1.set_title('Recovery Time Distribution\n(95% between 5 and 15 days)', fontsize=9)
+ax1.set_ylim(5, 15)
+ax1.invert_xaxis()
+ax1.yaxis.grid(True, linestyle='--', alpha=0.5)
+ax1.xaxis.grid(True, linestyle='--', alpha=0.5)
+
+width = 0.35
+spacing = 1.2
+tick_positions = []
+
+for i, (g1, g2, p) in enumerate(test_data):
+    is_sig = (i == first_significant)
+    color = 'red' if is_sig else 'lightgray'
+    
+    pos1 = i * spacing - width/2
+    pos2 = i * spacing + width/2
+
+    for data, pos in [(g1, pos1), (g2, pos2)]:
+        ax2.boxplot(data, positions=[pos], widths=width * 0.9,
+                   patch_artist=True,
+                   boxprops=dict(facecolor=color, color='black'),
+                   medianprops=dict(color='black'),
+                   whiskerprops=dict(color='black'),
+                   capprops=dict(color='black'),
+                   flierprops=dict(marker='o', color='gray', markersize=3))
+        if is_sig:
+            ax2.scatter(np.full(len(data), pos) + np.random.uniform(-0.05, 0.05, len(data)),
+                       data, color='gray', alpha=0.6, s=20, zorder=5)
+
+    tick_positions.append(i * spacing)
+
+ax2.axhline(y=10, color='black', linestyle='--', linewidth=1, alpha=0.7)
+ax2.set_xticks(tick_positions)
+ax2.set_xticklabels([f'Test #{i+1}' for i in range(n_tests)], fontsize=9)
+ax2.set_ylabel('Days Until Recovery', fontsize=10)
+ax2.set_title('Repeated Comparisons Between Random Groups\nFirst Statistically Significant Test Highlighted in Red', fontsize=9)
+ax2.set_ylim(5, 15)
+ax2.yaxis.grid(True, linestyle='--', alpha=0.5)
+ax2.xaxis.grid(True, linestyle='--', alpha=0.5)
+ax2.set_axisbelow(True)
+
+plt.tight_layout()
+plt.show()
+```
+
+There are many ways to compensate for the Multiple Testing Problem and reduce the number of false positives, for example, the False Discovery Rate. The general idea behind the False Discovery Rate (FDR) approach is to compute the p-value for each comparison and then calculate an adjusted p-value, which is usually larger than the original one. As a result, some of the tests that were initially statistically significant may now have an adjusted p-value greater than 5%.
+
+Let us imagine that Test #10 in the graph above, highlighted in red, has a p-value of 6%. Typically, when performing a statistical test, we do not know in advance whether the data from the two groups come from the same distribution or two different distributions. Honestly, we always hope, in our experiments, that the observations come from two different distributions. Remember that, in this experiment, we are searching for a drug to help people recover fast, and if the p-value is 6%, we are very tempted to know if the p-value will get smaller if we add more data. However, the theory assumes that we only calculate a single p-value to make a decision, and to avoid making a mistake and getting a false positive, we need to determine the proper sample size before experimenting. That means we need to do a Power Analysis that tells us how many replicates we need to have a relatively high probability of correctly rejecting the null hypothesis.
