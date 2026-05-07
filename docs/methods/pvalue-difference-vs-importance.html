@@ -181,7 +181,7 @@ window.Quarto = {
 
 
 <p>Imagine we have two drugs, A and B, given to two different patients. Drug A helps one patient, but drug B does not help the other. However, this does not prove that drug B doesn’t work. The second patient might have had an allergic reaction, or maybe drug A didn’t work, and the improvement was just a placebo effect. This is why scientists test drugs on many people, using a representative sample to get accurate results.</p>
-<div id="a98cc71f" class="cell" data-execution_count="1">
+<div id="2352897f" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -201,7 +201,7 @@ window.Quarto = {
 </ol>
 <p>So, a low p-value does not automatically mean that the difference is meaningful or important.</p>
 <p>When calculating probability and the p-value for a continuous variable, such as reaction times in a neuroscience experiment, a statistical distribution is used to model the data and assess the significance of the results. For example, the graph below represents the normal distribution of glucose levels in a population of 10,000 patients aged 18 to 70 years. The histogram displays the simulated glucose level data, and the curve represents the theoretical normal distribution with a mean of 100 mg/dL and a standard deviation of 15 mg/dL.</p>
-<div id="bfa484d3" class="cell" data-execution_count="2">
+<div id="555b027a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -218,7 +218,7 @@ window.Quarto = {
 <p>The average value of the distribution is approximately 100 mg/dL. The 2.5% tails (red-shaded areas) each contain 2.5% of the population, meaning that only 5% of the population has glucose levels outside this range (potentially abnormal values).</p>
 <p>From this example, 2.5% of the values are below 70.6 mg/dL, which are considered extremely low values. Another 2.5% are above 129.4 mg/dL, which are extremely high values. Together, these extreme values make up 5% of the data (2.5% + 2.5%). However, it is hard to say if a value is exactly on the borderline.</p>
 <p>It is also possible that the extreme value of 70.6 mg/dL comes from a different distribution. But if we have a value just below 70.6 mg/dL (for example, 68 mg/dL), the p-value will be lower than the standard 5% threshold, and we can reject the hypothesis that it is normal to have a measurement of 68 mg/dL. This suggests that a different distribution (in green) for glucose makes more sense.</p>
-<div id="785507a6" class="cell" data-execution_count="3">
+<div id="16b757d8" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -235,7 +235,7 @@ window.Quarto = {
 <p>In the research article Estimating the Reproducibility of Psychological Science, mentioned above, the impact of p-hacking on reproducibility is also discussed. The authors highlight that many original psychological studies achieved statistically significant results artificially due to p-hacking.</p>
 <p><strong>Doping Test Example: The Role of p-Value and Statistical Uncertainty</strong></p>
 <p>Doping tests in sports rely on statistical methods to determine whether an athlete’s substance level is naturally occurring or the result of performance-enhancing drugs. However, rigid application of statistical thresholds, such as the widely used 5% significance level (p-value &lt; 0.05), can lead to arbitrary and questionable decisions when a test result is close to this threshold. This example explores the uncertainty in decision-making when an athlete’s test result has a p-value slightly above 5%, raising concerns about the fairness and reliability of a strict cutoff.</p>
-<div id="fbb90980" class="cell" data-execution_count="4">
+<div id="3a397ef7" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -253,7 +253,7 @@ window.Quarto = {
 <p>The observed value of 2.78 ng/mL corresponds to a z-score of 1.56, and from the statistical table, the probability of obtaining a value greater than 2.78 under H<sub>0</sub> is p = 0.0600, slightly above the 0.05 cutoff. A strict threshold means this athlete would not be declared doped, while another athlete with a slightly higher level (e.g., p = 0.0499) would face a ban. The small difference in p-value creates a grey area where an athlete’s career might depend on an arbitrary decision. This example highlights the limitations of rigid statistical thresholds. Statistics should inform decisions but not replace expert judgment in critical cases like doping investigations.</p>
 <p><strong>Graph Analysis Example: Drug vs.&nbsp;Placebo in Blood Pressure Reduction</strong></p>
 <p>This graph represents the results of a clinical study comparing the effectiveness of a drug versus a placebo in reducing blood pressure, based on two samples of 100 patients each.</p>
-<div id="123e3007" class="cell" data-execution_count="5">
+<div id="dfe73656" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -292,7 +292,7 @@ window.Quarto = {
 <p><strong>Effect of Sample Size on the Variability of the t Statistic: A Monte Carlo Simulation</strong></p>
 <p>The Student’s t-distribution is a probability distribution commonly used in statistical tests, particularly when the sample size is limited and the population variance is unknown. It is similar to the normal distribution but with heavier tails, which reflects the greater uncertainty associated with small samples.</p>
 <p>The curve represents the theoretical distribution of the t-statistic under the null hypothesis (H<sub>0</sub>), that is when it is assumed that there is no real difference between the groups (for example, that the drug has no effect compared to the placebo).</p>
-<div id="3459cc10" class="cell" data-execution_count="6">
+<div id="218bda57" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -309,7 +309,7 @@ window.Quarto = {
 <ol type="1">
 <li>The difference <span class="math inline">\(\bar{X} - \mu_0\)</span> can be either positive or negative with equal probability.</li>
 </ol>
-<div id="fc0bdbb2" class="cell" data-execution_count="7">
+<div id="b8799346" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -323,7 +323,7 @@ window.Quarto = {
 </ol>
 <p><span class="math display">\[t = \frac{\bar{X} - \mu_0}{1} = \bar{X} - \mu_0\]</span></p>
 <p>Therefore, t increases linearly with the numerator. For each value of the numerator, t assumes the same value. This generates the diagonal line with slope 1. About the symmetry, for every positive value of the numerator, there exists a corresponding negative value, and t assumes opposite values but with the same intensity (e.g.&nbsp;-2 and +2).</p>
-<div id="99b4d347" class="cell" data-execution_count="8">
+<div id="77f9f394" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -345,7 +345,7 @@ window.Quarto = {
 <li><span class="math inline">\(V \sim \chi^2(\nu)\)</span>: chi-squared random variable with <span class="math inline">\(\nu\)</span> degrees of freedom</li>
 <li><span class="math inline">\(\nu\)</span>: degrees of freedom</li>
 </ul>
-<div id="292733c6" class="cell" data-execution_count="9">
+<div id="b3a4a371" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
