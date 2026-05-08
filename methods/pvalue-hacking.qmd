@@ -97,3 +97,94 @@ plt.show()
 There are many ways to compensate for the Multiple Testing Problem and reduce the number of false positives, for example, the False Discovery Rate. The general idea behind the False Discovery Rate (FDR) approach is to compute the p-value for each comparison and then calculate an adjusted p-value, which is usually larger than the original one. As a result, some of the tests that were initially statistically significant may now have an adjusted p-value greater than 5%.
 
 Let us imagine that Test #10 in the graph above, highlighted in red, has a p-value of 6%. Typically, when performing a statistical test, we do not know in advance whether the data from the two groups come from the same distribution or two different distributions. Honestly, we always hope, in our experiments, that the observations come from two different distributions. Remember that, in this experiment, we are searching for a drug to help people recover fast, and if the p-value is 6%, we are very tempted to know if the p-value will get smaller if we add more data. However, the theory assumes that we only calculate a single p-value to make a decision, and to avoid making a mistake and getting a false positive, we need to determine the proper sample size before experimenting. That means we need to do a Power Analysis that tells us how many replicates we need to have a relatively high probability of correctly rejecting the null hypothesis.
+
+**p-value Hacking: an Example**
+
+When faced with a p-value hovering around 0.06 or 0.07, researchers often feel justified in collecting additional observations to better verify the effect they're studying. While this approach might seem reasonable (we're almost there or just a bit more data to see the effect clearly), it introduces a methodological bias into the research. In the scientific literature, researchers refer to this behaviour using several terms: optional stopping, data peeking or more commonly known as p-hacking.
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+np.random.seed(42)
+
+drug_orig = np.random.normal(10, 2, 20)
+nodrug_orig = np.random.normal(11, 2, 20)
+
+drug_add = np.concatenate([drug_orig, np.random.normal(10, 2, 20)])
+nodrug_add = np.concatenate([nodrug_orig, np.random.normal(11, 2, 20)])
+
+_, p_orig = stats.ttest_ind(drug_orig, nodrug_orig)
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+positions = [1, 1.8, 3.2, 4]
+data = [drug_orig, nodrug_orig, drug_add, nodrug_add]
+colors = ['lightgray', 'lightgray', 'tomato', 'tomato']
+jitter = 0.08
+
+for pos, d, color in zip(positions, data, colors):
+    ax.boxplot(d, positions=[pos], widths=0.55,
+                patch_artist=True,
+                boxprops=dict(facecolor=color, color='black'),
+                medianprops=dict(color='black', linewidth=2),
+                whiskerprops=dict(color='black'),
+                capprops=dict(color='black'),
+                flierprops=dict(marker='o', markerfacecolor='none',
+                               markeredgecolor='gray', markersize=6))
+    
+    x_jitter = np.random.uniform(-jitter, jitter, len(d)) + pos
+    point_color = 'darkred' if color == 'tomato' else 'gray'
+    ax.scatter(x_jitter, d, color=point_color, alpha=0.5, s=50, zorder=5)
+
+ax.text(1.4, 16.2, f'p = {p_orig:.3f}', ha='center', fontsize=11)
+ax.text(3.6, 16.2, 'p ≈ 0.048', ha='center', fontsize=11)
+
+ax.text(4.2, 16.8, '20 additional observations per group',
+        color='red', fontsize=10, ha='right', style='italic')
+
+ax.axhline(y=10, color='gray', linestyle='--', linewidth=1, alpha=0.7)
+
+ax.set_xticks([1, 1.8, 3.2, 4])
+ax.set_xticklabels(['Drug', 'No-drug', 'Drug', 'No-drug'])
+ax.set_ylabel('Outcome (e.g., Recovery Time)', fontsize=11)
+ax.set_title('From Non-Significant to Significant by Increasing Sample Size', fontsize=12)
+
+ax.text(1.4, 4.8, 'Experiment', ha='center', fontsize=10)
+ax.text(3.6, 4.8, 'Experiment + Additional Sample', ha='center', fontsize=10)
+ax.set_xlabel('Condition', fontsize=11)
+
+ax.yaxis.grid(True, linestyle='--', alpha=0.5)
+ax.set_xlim(0.2, 5)
+ax.set_ylim(5, 17.5)
+
+plt.tight_layout()
+plt.show()
+```
+
+The graph above perfectly illustrates the concept of p-hacking. Here's what happens: a researcher conducts a test and obtains a p-value of 0.06, which is not statistically significant by conventional standards. Instead of accepting this result, he decided to modify the study design, specifically by adding more observations. When he performed the analysis again with the additional data, he obtained a p-value below 0.05 and declared his finding significant.
+
+**Why P-Values Tend to Decrease as Sample Size Increases**
+
+When the sample size increases in statistical studies, p-values typically decrease, even when examining the same effect. This occurs because larger samples provide more precise estimates of group means, with random fluctuations (noise) balancing out more effectively. Consequently, statistical tests can detect smaller differences between groups.
+
+Mathematically, this is evident in tests like the independent samples t-test, where:
+
+$$t = \frac{\bar{X}_1 - \bar{X}_2}{SE}$$
+
+where SE (standard error) is:
+
+$$SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+
+As sample sizes $n_1$ and $n_2$ increase, the standard error decreases, resulting in a larger t-statistic and smaller p-value, even when the observed difference $\bar{X}_1 - \bar{X}_2$ remains constant.
+
+This relationship creates an important caveat that must be emphasized: with very large samples, researchers can obtain statistically significant results (p < 0.05) even for minimal effects that have no practical relevance. The test becomes so sensitive that it detects differences too small to matter in clinical practice or policy decisions.
+
+Therefore, when working with large datasets, researchers must distinguish between statistical significance and practical importance, complementing p-value interpretation with effect size measures to assess the actual relevance of their findings.
+
+To address this issue, as an alternative, adopting flexible thresholds can be a viable solution by adjusting alpha levels based on the specific research context. Instead of relying on a fixed significance threshold, researchers should transparently justify their choice of alpha to ensure it aligns with the study's objectives and methodological considerations. See the paper: Justify Your Alpha: <a href="https://doi.org/10.1038/s41562-018-0311-x" target="_blank">https://doi.org/10.1038/s41562-018-0311-x</a>
+
