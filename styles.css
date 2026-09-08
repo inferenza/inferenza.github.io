@@ -50,11 +50,6 @@ p  { font-size: 0.9rem; line-height: 1.7; }
   color: #adb5bd !important;
 }
 
-.page-columns {
-  grid-template-columns: 0 minmax(0, 1fr) 0 !important;
-  padding: 0 clamp(1rem, 5%, 8rem) !important;
-}
-
 .quarto-title-meta-heading {
   display: none !important;
 }

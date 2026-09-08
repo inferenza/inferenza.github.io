@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "My name is Andrea Perlato. I started my scientific career at the University of Verona, School of Medicine, where I investigated the neural mechanisms underlying attention and cognitive control and earned a PhD in Neuroscience.\nMy research combines quantitative methods, statistics, machine learning, natural language processing, and artificial intelligence to study complex biomedical and scientific data. My work spans neuroscience, scientometrics, knowledge representation, and ontology engineering, with a particular focus on developing semantic frameworks for organizing and analyzing large-scale scientific knowledge. My research has also included neurodevelopmental disorders, particularly attention-deficit/hyperactivity disorder (ADHD), integrating clinical, cognitive, and statistical approaches.\nDrawing on this background, I created Inferenza to make statistical reasoning clearer and more useful for researchers working with real scientific data. The site is dedicated to applied statistics for scientific research, with a particular focus on biomedical and medical applications. Here, I explore statistical methods, the interpretation of scientific evidence, common methodological problems, and the practical use of quantitative approaches in research.\nYou can find more about my work on LinkedIn and ORCID, and visit my YouTube channel."
   },
   {
     "objectID": "methods/pvalue-hacking.html",
@@ -47,5 +47,19 @@
     "title": "Methods",
     "section": "",
     "text": "The Issue of P-Value Hacking and Its Impact on Research Integrity\n\n\n\nmethods\n\nstatistics\n\np-hacking\n\n\n\n\n\n\n\nMay 6, 2026\n\n\n\n\n\n\n\n\n\n\nUnderstanding the p-value: Difference vs. Importance\n\n\n\nmethods\n\nstatistics\n\np-value\n\n\n\n\n\n\n\nApr 30, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html#about-inferenza",
+    "href": "about.html#about-inferenza",
+    "title": "About",
+    "section": "",
+    "text": "Inferenza is a website dedicated to applied statistics for scientific research, with a particular focus on biomedical and medical applications. The site explores statistical methods, interpretation of scientific evidence, common methodological problems, and the practical use of quantitative approaches in research. The goal is to make statistical reasoning clearer and more useful for researchers working with real scientific data."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "About",
+    "section": "About me",
+    "text": "About me\nMy name is Andrea Perlato. I started my scientific career at the University of Verona, School of Medicine, where I investigated the neural mechanisms underlying attention and cognitive control and earned a PhD in Neuroscience.\nMy research combines quantitative methods, statistics, machine learning, natural language processing, and artificial intelligence to study complex biomedical and scientific data. My work spans neuroscience, scientometrics, knowledge representation, and ontology engineering, with a particular focus on developing semantic frameworks for organizing and analyzing large-scale scientific knowledge. My research has also included neurodevelopmental disorders, particularly attention-deficit/hyperactivity disorder (ADHD), integrating clinical, cognitive, and statistical approaches.\nYou can find more about my work on LinkedIn and ORCID, and visit my YouTube channel."
   }
 ]

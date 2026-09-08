@@ -24,6 +24,7 @@ format:
     theme: journal
     css: styles.css
     toc: true
-
+    grid:
+      body-width: 1600px
 
 
