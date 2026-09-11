@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-06">
+<meta name="dcterms.date" content="2026-05-08">
 
 <title>The Issue of P-Value Hacking and Its Impact on Research Integrity</title>
 <style>
@@ -166,7 +166,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 6, 2026</p>
+      <p class="date">May 8, 2026</p>
     </div>
   </div>
   
@@ -181,7 +181,7 @@ window.Quarto = {
 <p>The strict use of a fixed 5% p-value threshold has led to a major problem in scientific research: p-value hacking. This phenomenon refers to the excessive exploration of data or performing multiple analyses to find a “statistically significant” result (e.g., a p-value below 0.05). This practice is problematic because it increases the likelihood of false positive results that appear significant but do not reflect a true effect.</p>
 <p>Let us consider, as an example, measuring the recovery time for a group of individuals who have not taken any drug to combat a virus. Suppose that 95% of individuals recover within a time window ranging from 5 to 15 days. We randomly select two groups (from the same distribution), each with three observations, and compare their recovery times. We know that if we repeat this comparison 100 times, there’s a 5% chance of obtaining a false positive; that is, finding a statistically significant difference purely by chance. If we repeat the same procedure 10,000 times, we could expect around 500 false positives. In other words, the more tests of this kind we perform, the higher the likelihood of observing at least one false positive result.</p>
 <p>This phenomenon, where conducting many statistical tests increases the chance of false positives, is known as the Multiple Testing Problem.</p>
-<div id="de379f80" class="cell" data-execution_count="1">
+<div id="89d8efe9" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -194,7 +194,7 @@ window.Quarto = {
 <p>Let us imagine that Test #10 in the graph above, highlighted in red, has a p-value of 6%. Typically, when performing a statistical test, we do not know in advance whether the data from the two groups come from the same distribution or two different distributions. Honestly, we always hope, in our experiments, that the observations come from two different distributions. Remember that, in this experiment, we are searching for a drug to help people recover fast, and if the p-value is 6%, we are very tempted to know if the p-value will get smaller if we add more data. However, the theory assumes that we only calculate a single p-value to make a decision, and to avoid making a mistake and getting a false positive, we need to determine the proper sample size before experimenting. That means we need to do a Power Analysis that tells us how many replicates we need to have a relatively high probability of correctly rejecting the null hypothesis.</p>
 <p><strong>p-value Hacking: an Example</strong></p>
 <p>When faced with a p-value hovering around 0.06 or 0.07, researchers often feel justified in collecting additional observations to better verify the effect they’re studying. While this approach might seem reasonable (we’re almost there or just a bit more data to see the effect clearly), it introduces a methodological bias into the research. In the scientific literature, researchers refer to this behaviour using several terms: optional stopping, data peeking or more commonly known as p-hacking.</p>
-<div id="e4e73cce" class="cell" data-execution_count="2">
+<div id="5be4eb0d" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -214,8 +214,16 @@ window.Quarto = {
 <p>This relationship creates an important caveat that must be emphasized: with very large samples, researchers can obtain statistically significant results (p &lt; 0.05) even for minimal effects that have no practical relevance. The test becomes so sensitive that it detects differences too small to matter in clinical practice or policy decisions.</p>
 <p>Therefore, when working with large datasets, researchers must distinguish between statistical significance and practical importance, complementing p-value interpretation with effect size measures to assess the actual relevance of their findings.</p>
 <p>To address this issue, as an alternative, adopting flexible thresholds can be a viable solution by adjusting alpha levels based on the specific research context. Instead of relying on a fixed significance threshold, researchers should transparently justify their choice of alpha to ensure it aligns with the study’s objectives and methodological considerations. See the paper: Justify Your Alpha: <a href="https://doi.org/10.1038/s41562-018-0311-x" target="_blank">https://doi.org/10.1038/s41562-018-0311-x</a></p>
+<section id="references-and-further-resources" class="level2 bibliography">
+<h2 class="bibliography anchored" data-anchor-id="references-and-further-resources">References and further resources</h2>
+<ol type="1">
+<li>Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant. Psychological Science, 22(11), 1359–1366. <a href="https://doi.org/10.1177/0956797611417632" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/0956797611417632</a></li>
+<li>Head, M. L., Holman, L., Lanfear, R., Kahn, A. T., &amp; Jennions, M. D. (2015). The Extent and Consequences of P-Hacking in Science. PLOS Biology, 13(3), e1002106. <a href="https://doi.org/10.1371/journal.pbio.1002106" target="_blank" rel="noopener noreferrer">https://doi.org/10.1371/journal.pbio.1002106</a></li>
+<li>StatQuest with Josh Starmer — YouTube channel: <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener noreferrer">https://www.youtube.com/<span class="citation" data-cites="statquest">@statquest</span></a></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

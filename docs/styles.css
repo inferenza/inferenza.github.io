@@ -59,12 +59,15 @@ ol, ul, li {
   font-size: 0.95rem !important;
 }
 
-p a {
+p a,
+.bibliography li a {
   color: #4a90d9 !important;
   text-decoration: none !important;
 }
 
-p a:hover {
+p a:hover,
+.bibliography li a:hover,
+.bibliography li a:focus-visible {
   text-decoration: underline !important;
 }
 
@@ -74,3 +77,7 @@ img {
 }
 
 
+/* Spacing between bibliography entries */
+.bibliography li + li {
+  margin-top: 1rem;
+}

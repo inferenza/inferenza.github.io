@@ -1,6 +1,6 @@
 ---
 title: "The Issue of P-Value Hacking and Its Impact on Research Integrity"
-date: "2026-05-06"
+date: "2026-05-08"
 categories: [methods, statistics, p-hacking]
 ---
 
@@ -188,3 +188,9 @@ Therefore, when working with large datasets, researchers must distinguish betwee
 
 To address this issue, as an alternative, adopting flexible thresholds can be a viable solution by adjusting alpha levels based on the specific research context. Instead of relying on a fixed significance threshold, researchers should transparently justify their choice of alpha to ensure it aligns with the study's objectives and methodological considerations. See the paper: Justify Your Alpha: <a href="https://doi.org/10.1038/s41562-018-0311-x" target="_blank">https://doi.org/10.1038/s41562-018-0311-x</a>
 
+
+## References and further resources {.bibliography}
+
+1. Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant. Psychological Science, 22(11), 1359–1366. <a href="https://doi.org/10.1177/0956797611417632" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/0956797611417632</a>
+2. Head, M. L., Holman, L., Lanfear, R., Kahn, A. T., &amp; Jennions, M. D. (2015). The Extent and Consequences of P-Hacking in Science. PLOS Biology, 13(3), e1002106. <a href="https://doi.org/10.1371/journal.pbio.1002106" target="_blank" rel="noopener noreferrer">https://doi.org/10.1371/journal.pbio.1002106</a>
+3. StatQuest with Josh Starmer — YouTube channel: <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@statquest</a>

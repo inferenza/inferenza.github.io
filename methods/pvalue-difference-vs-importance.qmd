@@ -1,6 +1,6 @@
 ---
 title: "Understanding the p-value: Difference vs. Importance"
-date: "2026-04-30"
+date: "2026-04-24"
 categories: [methods, statistics, p-value]
 ---
 
@@ -515,3 +515,10 @@ plt.tight_layout()
 plt.show()
 ```
 To summarize, the t-distribution is symmetric around zero due to its mathematical structure: it is the ratio of a normally distributed numerator (centred at zero) and a positive denominator (the standard error). Since the denominator cannot change the sign, the symmetry is entirely driven by the numerator's equal likelihood of being positive or negative. Additionally, the independence between the normal numerator and the chi-squared-based denominator reinforces this symmetry, even with small sample sizes.
+
+
+## References and further resources {.bibliography}
+
+1. Wasserstein, R. L., &amp; Lazar, N. A. (2016). The ASA Statement on p-Values: Context, Process, and Purpose. The American Statistician, 70(2), 129–133. <a href="https://doi.org/10.1080/00031305.2016.1154108" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/00031305.2016.1154108</a>
+2. Cohen, J. (1994). The Earth Is Round (p &lt; .05). American Psychologist, 49(12), 997–1003. <a href="https://doi.org/10.1037/0003-066X.49.12.997" target="_blank" rel="noopener noreferrer">https://doi.org/10.1037/0003-066X.49.12.997</a>
+3. StatQuest with Josh Starmer — YouTube channel: <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@statquest</a>
